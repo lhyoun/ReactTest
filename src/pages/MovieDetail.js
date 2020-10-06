@@ -1,9 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import App from "../App";
-import MovieList from "./MovieList";
+import styled from "styled-components";
 
 const MovieDetail = (props) => {
+  const TitleStyle = styled.div`
+    padding: 10px 0px;
+    font-size: 30px;
+    font-weight: 800;
+    color: rgb(70, 70, 70);
+  `;
+
+  // 등록하기 버튼 스타일
+  const ButtonStyle = styled.button`
+    background-color: rgb(100, 100, 100);
+    color: white;
+    width: 70px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 6px;
+    border: 0px;
+    cursor: pointer;
+  `;
+
+  // 입력창 스타일
+  const InputStyle = styled.input`
+    height: 50%;
+    width: 50%;
+    color: rgb(100, 100, 100);
+    font-size: 15px;
+    border: 1px solid rgb(230, 230, 230);
+  `;
+
+  const MainStyle = styled.div`
+    margin: 30px 5%;
+  `;
+
+  const SubTitleStyle = styled.td`
+    padding: 10px 0px;
+    font-size: 12px;
+    font-weight: 600;
+  `;
+
   const [movie, setMovie] = useState({
     title: "",
     rating: null,
@@ -56,10 +93,12 @@ const MovieDetail = (props) => {
   }, []);
 
   return (
-    <div>
+    <MainStyle>
+      <TitleStyle>Movie Alert PAGE</TitleStyle>
+
+      <SubTitleStyle>Title</SubTitleStyle>
       <form>
-        제목
-        <input
+        <InputStyle
           type="text"
           name="title"
           placeholder="title"
@@ -67,8 +106,8 @@ const MovieDetail = (props) => {
           value={movie.title}
         />
         <br />
-        점수
-        <input
+        <SubTitleStyle>Rating</SubTitleStyle>
+        <InputStyle
           type="text"
           name="rating"
           placeholder="rating"
@@ -76,8 +115,9 @@ const MovieDetail = (props) => {
           value={movie.rating}
         />
         <br />
-        요약
-        <input
+
+        <SubTitleStyle>Summary</SubTitleStyle>
+        <InputStyle
           type="text"
           name="summary"
           placeholder="summary"
@@ -85,8 +125,9 @@ const MovieDetail = (props) => {
           value={movie.summary}
         />
         <br />
-        사진
-        <input
+
+        <SubTitleStyle>Medium_cover_image</SubTitleStyle>
+        <InputStyle
           type="text"
           name="medium_cover_image"
           placeholder="medium_cover_image"
@@ -94,10 +135,10 @@ const MovieDetail = (props) => {
           value={movie.medium_cover_image}
         />
         <br />
-        <button onClick={alertMovie}>수정</button>
-        {/* <button onClick={reset}>리셋</button> */}
+        <br />
+        <ButtonStyle onClick={alertMovie}>수정</ButtonStyle>
       </form>
-    </div>
+    </MainStyle>
   );
 };
 
