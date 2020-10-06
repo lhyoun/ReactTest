@@ -74,6 +74,7 @@ const MovieDetail = (props) => {
         if (res === 200) {
           alert("수정 성공");
           props.history.push("/");
+          // 이거는 수정 성공한 뒤로가기
         }
       });
   };
@@ -94,7 +95,7 @@ const MovieDetail = (props) => {
 
   return (
     <MainStyle>
-      <TitleStyle>Movie Alert PAGE</TitleStyle>
+      <TitleStyle>Movie Get(Detail) PAGE</TitleStyle>
 
       <SubTitleStyle>Title</SubTitleStyle>
       <form>

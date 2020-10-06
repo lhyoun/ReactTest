@@ -40,7 +40,7 @@ const SubTitleStyle = styled.td`
   font-weight: 600;
 `;
 
-const Register = () => {
+const Register = (props) => {
   const [movie, setMovie] = useState({
     title: "",
     rating: null,
@@ -69,7 +69,8 @@ const Register = () => {
       .then((res) => res.status)
       .then((res) => {
         if (res === 200) {
-          console.log("저장 성공");
+          alert("등록 성공");
+          props.history.push("/");
         }
       });
   };
